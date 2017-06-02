@@ -38,7 +38,7 @@ function Bug (){
     }
 }
 
-Bug.prototype.amINearWichBounds = function(){
+Bug.prototype.amINearWhichBounds = function(){
     var left = false, right = false, top = false, bottom = false;
     var w = window.innerWidth, h = window.innerHeight;
 
@@ -122,7 +122,7 @@ Bug.prototype.spawnControl = function(){
 
 Bug.prototype.shouldIMoveFoward = function(){
 
-    var bounds = this.amINearWichBounds();
+    var bounds = this.amINearWhichBounds();
     if (bounds.bottom && this._rotation == 0)
         return true;
 
@@ -154,7 +154,7 @@ Bug.prototype.shouldITurnRight = function(){
 };
 
 Bug.prototype.forceMeTurnThatWay = function(){
-    var bounds = this.amINearWichBounds();
+    var bounds = this.amINearWhichBounds();
     var moveTo = "";
 
     if (bounds.top || bounds.bottom || bounds.left || bounds.right)
