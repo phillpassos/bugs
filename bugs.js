@@ -337,7 +337,7 @@ function Swarm(){
       var tmId = 0;
       tmId = setInterval(function () {
           if (i < swarmLenght){
-            spawnABug(i);
+            spawnABug(Number(String((Date.now()) + String(i) + String(Math.floor(Math.random() * swarmLenght)))));
             i = i + 1;
           }
           else {
