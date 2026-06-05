@@ -435,7 +435,7 @@ function registerEvent() {
 };
 
 function checkDocumentReady(callback) {
-  if (document.readyState !== 'loading') {
+  if (document.readyState === 'complete') {
     callback();
     return;
   }
