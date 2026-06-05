@@ -411,29 +411,37 @@ function Swarm(){
     };
 }
 
+function registerEvent() {
+    document.addEventListener("keydown", function(e) {
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 66)/*ctrl b*/{
+            var swarm = new Swarm();
+            swarm.setBugColor('yellow');
+            swarm.spawnTheSwarm();
+            return;
+        }
 
+        if (e.ctrlKey && e.altKey && e.keyCode == 66)/*ctrl b*/{
+            var swarm = new Swarm();
+            swarm.setBugColor('red');
+            swarm.spawnTheSwarm();
+            return;
+        }
 
+        if (e.ctrlKey && e.keyCode == 66)/*ctrl b*/{
+            var swarm = new Swarm();
+            swarm.spawnTheSwarm();
+        }
+    });
+};
 
-$(document).ready(function(){
-  $(document).on("keydown", function(e){
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 66)/*ctrl b*/{
-      var swarm = new Swarm();
-      swarm.setBugColor('yellow');
-      swarm.spawnTheSwarm();
-      return;
-    }
+function checkDocumentReady(callback) {
+  if (document.readyState !== 'loading') {
+    callback();
+    return;
+  }
+  document.addEventListener('DOMContentLoaded', callback);
+}
 
-    if (e.ctrlKey && e.altKey && e.keyCode == 66)/*ctrl b*/{
-      var swarm = new Swarm();
-      swarm.setBugColor('red');
-      swarm.spawnTheSwarm();
-      return;
-    }
-
-    if (e.ctrlKey && e.keyCode == 66)/*ctrl b*/{
-      var swarm = new Swarm();
-      swarm.spawnTheSwarm();
-    }
-  });
-
-});
+checkDocumentReady(function(){
+  registerEvent();
+})
